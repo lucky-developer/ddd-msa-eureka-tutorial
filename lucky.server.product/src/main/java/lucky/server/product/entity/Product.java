@@ -1,12 +1,22 @@
-package lucky.server.common.entity;
+package lucky.server.product.entity;
 
-import sun.text.bidi.BidiLine;
+import lucky.server.common.entity.ProductDto;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Product {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
     private String description;
+
+    public Product(){}
 
     public Product(int id){
         this.id = id;
