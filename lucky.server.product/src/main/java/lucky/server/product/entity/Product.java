@@ -1,13 +1,16 @@
 package lucky.server.product.entity;
 
 import lucky.server.common.entity.ProductDto;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 public class Product {
 
     @Id
@@ -15,6 +18,16 @@ public class Product {
     private int id;
     private String name;
     private String description;
+
+    @CreatedDate
+    private LocalDateTime createdAt;
+    @LastModifiedDate
+    private LocalDateTime updatedAt;
+
+    @CreatedDate
+    private long createdAtLong;
+    @LastModifiedDate
+    private long updatedAtLong;
 
     public Product(){}
 
@@ -52,5 +65,37 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public long getCreatedAtLong() {
+        return createdAtLong;
+    }
+
+    public void setCreatedAtLong(long createdAtLong) {
+        this.createdAtLong = createdAtLong;
+    }
+
+    public long getUpdatedAtLong() {
+        return updatedAtLong;
+    }
+
+    public void setUpdatedAtLong(long updatedAtLong) {
+        this.updatedAtLong = updatedAtLong;
     }
 }
