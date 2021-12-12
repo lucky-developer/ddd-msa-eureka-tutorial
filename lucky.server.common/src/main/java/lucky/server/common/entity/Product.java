@@ -35,10 +35,14 @@ public class Product {
         this.description = "TestDescription";
     }
 
-    public Product(ProductDto dto){
-        this.id = dto.getId();
-        this.name = dto.getName();
-        this.description = dto.getDescription();
+    public static Product fromDtoWithId(ProductDto dto, boolean withId){
+        Product product = new Product();
+        if(withId){
+            product.id = dto.getId();
+        }
+        product.name = dto.getName();
+        product.description = dto.getDescription();
+        return product;
     }
 
     public int getId() {
