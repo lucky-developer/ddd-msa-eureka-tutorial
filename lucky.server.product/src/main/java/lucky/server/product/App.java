@@ -9,14 +9,15 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaAuditing
-@EntityScan(basePackages = {
-        "lucky.server.common"
-})
-@ComponentScan(basePackages = {
+@ComponentScan(basePackages = { // create beans and add to Spring container for DI
         "lucky.server.product",
         "lucky.server.common"
 })
-@EnableJpaRepositories(basePackages = {
+@EntityScan(basePackages = { // identifies which classes should be used by a Jpa persistence contenxt.
+        "lucky.server.common"
+})
+
+@EnableJpaRepositories(basePackages = { // used to create repository classes from Spring Data interfaces.
         "lucky.server.common"
 })
 public class App {
