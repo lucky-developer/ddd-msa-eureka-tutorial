@@ -1,7 +1,5 @@
-package lucky.server.product.entity;
+package lucky.server.common.entity;
 
-import lucky.server.common.entity.ProductDto;
-import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;

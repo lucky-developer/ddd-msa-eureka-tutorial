@@ -1,8 +1,8 @@
 package lucky.server.product.service;
 
-import lucky.server.product.entity.Product;
-import lucky.server.product.repository.ProductMemoryRepository;
-import lucky.server.product.repository.ProductRepository;
+import lucky.server.common.entity.Product;
+import lucky.server.common.repository.ProductMemoryRepository;
+import lucky.server.common.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

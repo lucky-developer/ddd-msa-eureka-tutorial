@@ -1,6 +1,6 @@
-package lucky.server.product.repository;
+package lucky.server.common.repository;
 
-import lucky.server.product.entity.Product;
+import lucky.server.common.entity.Product;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;

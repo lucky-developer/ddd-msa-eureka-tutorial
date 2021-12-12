@@ -1,6 +1,6 @@
 package lucky.server.product.controller;
 
-import lucky.server.product.entity.Product;
+import lucky.server.common.entity.Product;
 import lucky.server.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

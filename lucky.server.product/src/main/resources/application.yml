@@ -1,5 +1,4 @@
 # H2 configuration reference : https://www.baeldung.com/spring-boot-h2-database
-
 server:
   port: 8080
 
