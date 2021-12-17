@@ -1,0 +1,46 @@
+<!-- logging.level : trace > debug > info > warn > error-->
+<configuration>
+    <appender name="consoleAppender"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%date GMT][%-5level][%logger{36}.%M\(%line\)] %msg %n</pattern>
+        </encoder>
+        <!-- deny all events with a level below INFO, that is TRACE and DEBUG -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+    </appender>
+
+    <appender name="fileAppender"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logging.path:-logs}/product.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>[%date GMT][%-5level][%logger{36}.%M\(%line\)] %msg %n</pattern>
+        </encoder>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${logging.path:-logs}/product.%d{yyyyMMdd}.%i.log
+            </fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>20MB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="lucky.server.product.controller" level="INFO" additivity="false">
+        <appender-ref ref="consoleAppender" />
+        <appender-ref ref="fileAppender" />
+    </logger>
+
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="fileAppender" />
+    </root>
+</configuration>

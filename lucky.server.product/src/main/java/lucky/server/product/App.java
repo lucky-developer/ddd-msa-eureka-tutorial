@@ -7,6 +7,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import java.io.File;
+
 @SpringBootApplication
 @EnableJpaAuditing
 @ComponentScan(basePackages = { // create beans and add to Spring container for DI
@@ -22,6 +24,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 })
 public class App {
     public static void main(String[] args) {
+        System.setProperty("lucky.server.home", "/Users/hwanseok/lucky-developer");
+        System.setProperty("logging.path", System.getProperty("lucky.server.home")+ File.separator + "logs");
+        System.setProperty("logging.file", "product.log");
         SpringApplication.run(App.class, args);
     }
 }

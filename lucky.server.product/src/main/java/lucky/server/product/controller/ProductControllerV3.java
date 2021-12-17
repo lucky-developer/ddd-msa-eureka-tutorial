@@ -4,6 +4,8 @@ import lucky.server.common.entity.Product;
 import lucky.server.common.entity.ProductDto;
 import lucky.server.common.util.RestResponse;
 import lucky.server.product.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ProductControllerV3 {
+    Logger logger = LoggerFactory.getLogger(ProductControllerV3.class);
     @Autowired
     private ProductService productService;
 
@@ -31,6 +34,7 @@ public class ProductControllerV3 {
     RestResponse getProductById(@PathVariable("id") int id){
         Product product = productService.findProductById(id);
         if(product == null){
+            logger.info("/v3/product/get/{id} product is null");
             return RestResponse.badRequest("product with id " + id + " does not exist");
         }
         return RestResponse.success(product);

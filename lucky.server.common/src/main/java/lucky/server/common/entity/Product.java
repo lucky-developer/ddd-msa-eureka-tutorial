@@ -45,6 +45,19 @@ public class Product {
         return product;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", createdAtLong=" + createdAtLong +
+                ", updatedAtLong=" + updatedAtLong +
+                '}';
+    }
+
     public int getId() {
         return id;
     }
